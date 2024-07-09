@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getHeroesByPublisher } from '../helpers'
+import { HeroCard } from './HeroCard'
 
 // eslint-disable-next-line react/prop-types
 export function HeroList ({ publisher }) {
@@ -13,14 +14,12 @@ export function HeroList ({ publisher }) {
   }, [publisher])
 
   return (
-    <ul>
+    <div className=' row row-cols-1 row-cols-md-3 accordion '>
       {
             heros?.map((hero) => (
-              <li key={hero.id}>
-                <p>{hero.superhero}</p>
-              </li>
+              <HeroCard key={hero.id} {...hero} />
             ))
         }
-    </ul>
+    </div>
   )
 }
