@@ -1,13 +1,7 @@
+import { Link } from 'react-router-dom'
 /* eslint-disable camelcase */
-export function HeroCard ({
-  // eslint-disable-next-line react/prop-types
-  id,
-  superhero,
-  publisher,
-  alter_ego,
-  first_appearance,
-  characters
-}) {
+// eslint-disable-next-line react/prop-types
+export function HeroCard ({ id, superhero, publisher, alter_ego, first_appearance, characters }) {
   const heroImageUrl = `/src/assets/heroes/${id}.jpg`
 
   return (
@@ -21,7 +15,15 @@ export function HeroCard ({
             <div className='card-body'>
               <h5 className='card-title'>{superhero}</h5>
               <p className='card-text'>{alter_ego}</p>
-              <p>{characters}</p>
+              {
+                (alter_ego !== characters) && (<p>{characters}</p>)
+              }
+              <div className='card-text'>
+                <small className=' text-muted '>{first_appearance}</small>
+              </div>
+
+              <Link to={`/hero/${id}`}>Mas..</Link>
+
             </div>
           </div>
         </div>
