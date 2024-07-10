@@ -5,7 +5,7 @@ export function HeroCard ({ id, superhero, publisher, alter_ego, first_appearanc
   const heroImageUrl = `/src/assets/heroes/${id}.jpg`
 
   return (
-    <div className='col'>
+    <div className='col animate__animated animate__fadeIn'>
       <div className='card'>
         <div className='row no-gutters '>
           <div className='col-4'>
