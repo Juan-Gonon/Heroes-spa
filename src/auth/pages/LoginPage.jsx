@@ -6,8 +6,9 @@ export function LoginPage () {
   const { login } = useAuth()
 
   const handleClickLogin = () => {
+    const lastPath = localStorage.getItem('lastPath') || '/'
     login('Juan')
-    navigate('/', {
+    navigate(lastPath, {
       replace: true
     })
   }
