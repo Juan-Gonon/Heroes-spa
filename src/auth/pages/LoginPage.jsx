@@ -1,9 +1,12 @@
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 
 export function LoginPage () {
   const navigate = useNavigate()
+  const { login } = useAuth()
 
   const handleClickLogin = () => {
+    login('Juan')
     navigate('/', {
       replace: true
     })

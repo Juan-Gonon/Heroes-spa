@@ -1,6 +1,8 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 
 export const Navbar = () => {
+  const { user = {} } = useAuth()
   const handleLogout = () => {
     // console.log('logAut')
     navigate('/login', {
@@ -48,7 +50,7 @@ export const Navbar = () => {
 
       <div className='navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end  '>
         <ul className='navbar-nav ml-auto'>
-          <span className='nav-item nav-link text-primary'>Juan</span>
+          <span className='nav-item nav-link text-primary'>{user?.name}</span>
           <button className='nav-item nav-link btn' onClick={handleLogout}>LogOut</button>
         </ul>
       </div>
