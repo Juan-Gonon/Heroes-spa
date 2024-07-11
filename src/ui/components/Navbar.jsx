@@ -2,12 +2,13 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 
 export const Navbar = () => {
-  const { user = {} } = useAuth()
+  const { user = {}, logout } = useAuth()
   const handleLogout = () => {
     // console.log('logAut')
     navigate('/login', {
       replace: true
     })
+    logout()
   }
 
   const navigate = useNavigate()
