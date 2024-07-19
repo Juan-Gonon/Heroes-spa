@@ -15,7 +15,7 @@ export function HeroPage () {
     navigate(-1)
   }
 
-  console.log(hero)
+  // console.log(hero)
   return (
     <div className='row mt-5 '>
       <div className='col-4'>

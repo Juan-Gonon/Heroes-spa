@@ -19,7 +19,7 @@ export function SearchPage () {
   const handleSubmitForm = (e) => {
     e.preventDefault()
     // if (searchText.trim().length < 1) return
-    console.log(searchText)
+    // console.log(searchText)
     navigate(`?q=${searchText}`)
   }
 
