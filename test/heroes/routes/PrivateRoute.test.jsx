@@ -11,8 +11,10 @@ describe('Prueba en el <PrivateRoutes />', () => {
     useAuth.mockReturnValue({
       logged: true
     })
+    // Storage.prototype.setItem = vi.fn()
+    const setItemMock = vi.spyOn(Storage.prototype, 'setItem')
     render(
-      <MemoryRouter>
+      <MemoryRouter initialEntries={['/search?q=batman']}>
         <PrivateRoute>
           <h1>Private Route</h1>
         </PrivateRoute>
@@ -22,5 +24,6 @@ describe('Prueba en el <PrivateRoutes />', () => {
     // screen.debug()
 
     expect(screen.getByText('Private Route')).toBeTruthy()
+    expect(setItemMock).toHaveBeenCalledWith('lastPath', '/search?q=batman')
   })
 })
