@@ -9,14 +9,18 @@ vi.mock('../../src/hooks/useAuth')
 
 describe('Pruebas en <MyRoutes />', () => {
   it('debe de mostrar el login si no está autenticado ', () => {
-    const contextValue = {
+    // const contextValue = {
+    //   logged: false
+    // }
+    useAuth.mockReturnValue({
       logged: false
-    }
+    })
+
     render(
       <MemoryRouter initialEntries={['/marvel']}>
-        <AuthContext.Provider value={contextValue}>
-          <MyRoutes />
-        </AuthContext.Provider>
+        {/* <AuthContext.Provider value={contextValue}> */}
+        <MyRoutes />
+        {/* </AuthContext.Provider> */}
 
       </MemoryRouter>
     )
