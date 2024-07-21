@@ -35,7 +35,7 @@ export function SearchPage () {
         <div className='col-5'>
           <h4>Searching</h4>
           <hr />
-          <form onSubmit={handleSubmitForm}>
+          <form aria-label='form-event' onSubmit={handleSubmitForm}>
             <input
               type='text'
               placeholder='Search a hero'
@@ -44,6 +44,7 @@ export function SearchPage () {
               autoComplete='off'
               value={searchText}
               onChange={onInputChange}
+              aria-label='searchText'
             />
             <button className='btn btn-outline-primary mt-1 '>Search</button>
           </form>

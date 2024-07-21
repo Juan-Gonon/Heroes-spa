@@ -1,9 +1,24 @@
-import { render, screen } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { SearchPage } from '../../../src/heroes/pages/SearchPage'
 
+const useNavigateMock = vi.fn()
+vi.mock('react-router-dom', async (importOriginal) => {
+  const actual = await importOriginal('react-router-dom')
+
+  return {
+    ...actual,
+    useNavigate: () => useNavigateMock
+  }
+})
+
 describe('Pruebas en <SearchPage /> ', () => {
+  beforeEach(() => {
+    cleanup()
+    vi.clearAllMocks()
+  })
+
   it('debe de mostrarse correctamente con valores por defecto ', () => {
     const { container } = render(
       <MemoryRouter>
@@ -44,6 +59,17 @@ describe('Pruebas en <SearchPage /> ', () => {
   })
 
   it('debe de llamar el navigate a la pantalla nueva ', () => {
+    render(
+      <MemoryRouter initialEntries={['/search']}>
+        <SearchPage />
+      </MemoryRouter>
+    )
 
+    const input = screen.getByRole('textbox', { name: 'searchText' })
+    const form = screen.getByRole('form', { name: 'form-event' })
+    fireEvent.change(input, { target: { name: 'searchText', value: 'batman' } })
+    fireEvent.submit(form)
+
+    expect(useNavigateMock).toHaveBeenCalledWith('?q=batman')
   })
 })
