@@ -66,6 +66,7 @@ export function SearchPage () {
           } */}
 
           <div
+            aria-label='msg-search-hero'
             className='alert alert-primary animate__animated animate__fadeIn ' style={{
               display: showSearch ? '' : 'none'
             }}
