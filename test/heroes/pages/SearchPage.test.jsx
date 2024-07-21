@@ -30,4 +30,20 @@ describe('Pruebas en <SearchPage /> ', () => {
     expect(divHero.style.display).toBe('none')
     screen.debug()
   })
+
+  it('debe de mostrar un error si no se encuentra el hero (batman123) ', () => {
+    render(
+      <MemoryRouter initialEntries={['/search?q=batman123']}>
+        <SearchPage />
+      </MemoryRouter>
+    )
+    const divNotHero = screen.getByLabelText('alert-not-hero')
+
+    // console.log(divNotHero.style)
+    expect(divNotHero.style.display).not.contain('none')
+  })
+
+  it('debe de llamar el navigate a la pantalla nueva ', () => {
+
+  })
 })

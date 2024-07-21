@@ -75,6 +75,7 @@ export function SearchPage () {
           </div>
 
           <div
+            aria-label='alert-not-hero'
             className='alert alert-danger animate__animated animate__fadeIn' style={{
               display: showError ? '' : 'none'
             }}
