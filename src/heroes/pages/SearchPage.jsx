@@ -19,7 +19,7 @@ export function SearchPage () {
   const handleSubmitForm = (e) => {
     e.preventDefault()
     // if (searchText.trim().length < 1) return
-    console.log(searchText)
+    // console.log(searchText)
     navigate(`?q=${searchText}`)
   }
 
@@ -35,7 +35,7 @@ export function SearchPage () {
         <div className='col-5'>
           <h4>Searching</h4>
           <hr />
-          <form onSubmit={handleSubmitForm}>
+          <form aria-label='form-event' onSubmit={handleSubmitForm}>
             <input
               type='text'
               placeholder='Search a hero'
@@ -44,6 +44,7 @@ export function SearchPage () {
               autoComplete='off'
               value={searchText}
               onChange={onInputChange}
+              aria-label='searchText'
             />
             <button className='btn btn-outline-primary mt-1 '>Search</button>
           </form>
@@ -66,6 +67,7 @@ export function SearchPage () {
           } */}
 
           <div
+            aria-label='msg-search-hero'
             className='alert alert-primary animate__animated animate__fadeIn ' style={{
               display: showSearch ? '' : 'none'
             }}
@@ -74,6 +76,7 @@ export function SearchPage () {
           </div>
 
           <div
+            aria-label='alert-not-hero'
             className='alert alert-danger animate__animated animate__fadeIn' style={{
               display: showError ? '' : 'none'
             }}

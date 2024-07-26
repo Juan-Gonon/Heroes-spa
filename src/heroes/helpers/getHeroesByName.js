@@ -1,7 +1,7 @@
 import { heroes } from '../data/heroes'
 
 export function getHeroesByName ({ name = '' }) {
-  console.log(name)
+  // console.log(name)
   name = name.toLocaleLowerCase().trim()
 
   if (name.length === 0) return []

@@ -15,11 +15,11 @@ export function HeroPage () {
     navigate(-1)
   }
 
-  console.log(hero)
+  // console.log(hero)
   return (
     <div className='row mt-5 '>
       <div className='col-4'>
-        <img className='img-thumbnail animate__animated animate__fadeInLeft' src={`/src/assets/heroes/${id}.jpg`} alt='' />
+        <img aria-label='img-hero' className='img-thumbnail animate__animated animate__fadeInLeft' src={`/src/assets/heroes/${id}.jpg`} alt='' />
       </div>
 
       <div className='col-8'>
